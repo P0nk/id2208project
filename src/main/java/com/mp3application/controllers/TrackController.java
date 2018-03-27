@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mp3application.controllers;
 
 import com.mp3application.models.Track;
@@ -25,13 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author Kim
- */
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/api")
-@CrossOrigin
 public class TrackController {
     
     @Autowired

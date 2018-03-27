@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mp3Application</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+  <header>
+    <div class="jumbotron text-center">
+      <h1>MP3 music <small>ID3 tags centralized</small></h1>
+    </div>
+  </header>
+  <main>
+      <h2>Upload file to server</h2>
+
+      <span>Upload file</span>
+      <input type="file" name="file" id="file"/>
+      <button type="submit" class="btn btn-primary" id="upload_file_button">POST</button>
+
+      <form>
+        <table border="1px solid black">
+          <tr>
+            <td colspan="2">File Upload</td>
+          </tr>
+          <tr>
+            <th>Select File </th>
+            <td><input id="csv" name="file" type="file" accept=".mp3"/></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="submit" class="btn btn-default" value="Submit"/>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="container">
+      <h2>Track listing</h2>
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="post.js"></script>
+  <script>
+  //form Submit
+  $("form").submit(function(evt){
+    evt.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+      url: 'http://localhost:8080/api/tracks',
+      type: 'POST',
+      data: formData,
+      async: false,
+      cache: false,
+      contentType: false,
+      enctype: 'multipart/form-data',
+      processData: false,
+      success: function (response) {
+        alert(response);
+      }
+    });
+    return false;
+  });
+  </script>
+</body>
+</html>

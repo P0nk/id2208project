@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mp3application.services;
 
 import java.io.File;
@@ -15,8 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FileSystemStorageService implements StorageService {
 
-   private final String location = "C:\\Users\\Per\\Documents\\NetBeansProjects\\Mp3Application\\tracks\\";
    private final Path rootLocation;
+   private String location = "C:\\NetBeansProjectsJava\\Mp3Application\\tracks";
 
    @Autowired
    public FileSystemStorageService() {
@@ -55,4 +60,5 @@ public class FileSystemStorageService implements StorageService {
            throw new StorageException("Could not initialize storage", e);
        }
    }
+
 }

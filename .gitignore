@@ -1,3 +1,6 @@
+tracks/
+tracks-src/
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
@@ -22,7 +25,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-.tracks/
-.tracks-src/
-

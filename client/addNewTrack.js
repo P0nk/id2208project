@@ -1,5 +1,5 @@
-$("#add-new-track").submit(function(evt){
-  evt.preventDefault();
+$("#add-new-track").submit(function(event){
+  event.preventDefault();
   var formData = new FormData($(this)[0]);
   $.ajax({
     url: 'http://localhost:8080/api/tracks',

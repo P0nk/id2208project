@@ -13,13 +13,15 @@ function update(){
 
     var track = new Object();
     track.id = $('.track-radio-button:checked').attr('id');
-      track.title = $('#title').val();
-      track.artist = $('#artist').val();
-      track.album = $('#album').val();
-      track.length = $('#length').val();
-      track.year = $('#year').val();
+    track.title = $('#title').val();
+    track.artist = $('#artist').val();
+    track.album = $('#album').val();
+    track.length = $('#length').val();
+    track.year = $('#year').val();
     var json = JSON.stringify(track);
+
     urlToAPI = "http://localhost:8080/api/tracks/" + track.id;
+    
     $.ajax({
       url: urlToAPI,
       type: 'PUT',
@@ -32,7 +34,7 @@ function update(){
         getAllTracks();
       },
       error: function () {
-         console.log("Något gick fel");
+         console.log("Something went wrong");
          $('#update-modal').modal('hide');
          getAllTracks();
        },

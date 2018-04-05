@@ -6,13 +6,15 @@ import com.mpatric.mp3agic.Mp3File;
 import java.io.File;
 
 public final class FileToMetaData {
-     
-    private FileToMetaData(){}
-    
+
+    private FileToMetaData() {
+    }
+
     public static Track getTrack(File trackFile) {
+        
         try {
             Mp3File track = new Mp3File(trackFile);
-            
+
             if (track.hasId3v2Tag()) {
                 ID3v2 tag = track.getId3v2Tag();
                 String title = tag.getTitle();
@@ -28,4 +30,3 @@ public final class FileToMetaData {
         return null;
     }
 }
-
